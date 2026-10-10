@@ -1,4 +1,5 @@
 import {ProtocolParser, positions, buildCommand, dtsText, calibrationIssue, DRIVER_REVISION} from './protocol.js';
+import {initI18n} from './i18n.js';
 
 const $ = id => document.getElementById(id);
 const labels = {
@@ -340,3 +341,4 @@ if (!('serial' in navigator) || !isSecureContext) {
 if ('serial' in navigator) navigator.serial.addEventListener('disconnect',event=> { if ((event.port || event.target) === port) void disconnect(); });
 window.addEventListener('beforeunload',event=> { if (active() && !demo) { event.preventDefault(); event.returnValue = ''; } });
 renderKeys(); renderMetrics(); updateControls();
+initI18n();
